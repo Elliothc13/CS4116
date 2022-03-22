@@ -10,49 +10,73 @@
 <body>
     <center>
         <h3>Register Here</h3>
-        <form action="" method=" ">
+        <form action="register.php" method="POST">
             <table>
                 <tr>
-                    <td>Username:</td>
+                    <td>Email:</td>
                     <td>
-                        <input type="text" name="user">
+                        <input type="email" name="email">
                     </td>
                 </tr>
                 <tr>
                     <td>Password:</td>
                     <td>
-                        <input type="text" name="user_pass">
+                        <input type="password" name="password">
                     </td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
+                    <td>First name:</td>
                     <td>
-                        <input type="email" name="mail">
+                        <input type="text" name="first_name">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Surname:</td>
+                    <td>
+                        <input type="text" name="surname">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td>
+                        <input type="text" name="location">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Date of birth:</td>
+                    <td>
+                        <input type="date" name="date_of_birth">
                     </td>
 
                 </tr>
                 <tr>
                     <td>Gender:</td>
                     <td>
-                        <input type="radio" name="gender">Male
-                        <input type="radio" name="gender">Female
-                        <input type="radio" name="gender">Others
-                    </td>
-                <tr>
-                    <td>Phone:</td>
-                    <td>
-                        <select>
-                            <option selected>+353</option>
-                            <option>+44</option>
-                            <option>+86</option>
-                            <option>+1</option>
-                            <option>+49</option>
-                            <input type="phone" name="mob_digits"
-                        </select>
+                        <input type="radio" name="gender" value="MALE">Male
+                        <input type="radio" name="gender" value="FEMALE">Female
+                        <input type="radio" name="gender" value="OTHER">Other
                     </td>
 
                 </tr>
-                
+                <tr>
+                    <td>Preferred gender:</td>
+                    <td>
+                        <input type="radio" name="gender_preference" value="MALE">Male
+                        <input type="radio" name="gender_preference" value="FEMALE">Female
+                        <input type="radio" name="gender_preference" value="OTHER">Other
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td>
+                        <input type="text" name="description">
+                    </td>
+
+                </tr>
                 <tr>
                     <td>
                         <input type="submit" name="submit" value="Register" />
