@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Home page</Title>
+    </head>
+    <body>
+        <h2>Select option</h2>
+        <a href="Register.html">
+            <button>Registration</button>
+        </a>
+        <a href="Login.html">
+            <button>Login</button>
+        </a>
+        <a href="settings.html">
+            <button>Settings</button>
+        </a>
+    </body>
+</html>
