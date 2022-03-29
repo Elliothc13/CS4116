@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+        crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="CSS Files/css.css">
+</head>
+
+  <body>
+    <div class="container-fluid">
+
+        <div class="row">
+            <input class="offset-3" type="text" placeholder="Search.." style="width: 50%;">
+            <div class="col-sm-1 offset-1"></div>
+            <button class="col-sm-1">Log out</button>
+            <div class="col-sm-2 offset-1">
+            </div>
+            <div class="feed col-sm-6">
+                <h2 class="offset-1">Temporarily banned users</h2>
+                <br>
+                <div class="card col-sm-8 offset-1">
+                    <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text.</p>
+                        <a href="profile_admin.html" class="btn btn-primary">See Profile</a>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-info collapsed col-sm-8 offset-1" type="button" data-bs-toggle="collapse" data-bs-target="#resttempban">See more</button>
+                <div id="resttempban" class="collapse">
+                    <div class="card col-sm-8 offset-1">
+                        <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                        <div class="card-body">
+                            <h4 class="card-title">Jane Doe</h4>
+                            <p class="card-text">Some example text.</p>
+                            <a href="#" class="btn btn-primary">See Profile</a>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+                <br>
+                <hr>
+                <h2 class="offset-1">Permanently banned users</h2>
+                <div class="card col-sm-8 offset-1">
+                    <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">Hacker Smith</h4>
+                        <p class="card-text">Some example text.</p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-info collapsed col-sm-8 offset-1" type="button" data-bs-toggle="collapse" data-bs-target="#restpermban">See more</button>
+                <div id="restpermban" class="col-sm-8 offset-1 collapse">
+                    <p>No more users to show.</p>
+                </div>
+                <br>
+                <hr>
+                <h2 class="offset-1">All other users</h2>
+                <div class="card col-sm-8 offset-1">
+                    <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">Mary Murphy</h4>
+                        <p class="card-text">Some example text.</p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-info collapsed col-sm-8 offset-1" type="button" data-bs-toggle="collapse" data-bs-target="#restnoban">See more</button>
+                <div id="restnoban" class="col-sm-8 offset-1 collapse">
+                    <p>No more users to show.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+    crossorigin="anonymous"></script>
+  </body>
+</div>
+
+</html>
