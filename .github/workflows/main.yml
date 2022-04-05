@@ -18,3 +18,5 @@ jobs:
           password: ${{secrets.passwordftp}}
           protocol: ftps
           port: 21
+          server-dir: htdocs/
+          
