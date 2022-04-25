@@ -89,9 +89,9 @@ const changeBackground = () => {
 }
 
 background1.addEventListener('click', () => {
-    background1.add('active');
-    background2.remove('active');
-    background3.remove('active');
+    background1.classList.add('active');
+    background2.classList.remove('active');
+    background3.classList.remove('active');
     window.location.reload();
 })
 
@@ -99,9 +99,9 @@ background2.addEventListener('click', () => {
     darkColorLightness = '95%';
     whiteColorLightness = '20%';
     lightColorLightness = '15%';
-    background2.add('active');
-    background1.remove('active');
-    background3.remove('active');
+    background2.classList.add('active');
+    background1.classList.remove('active');
+    background3.classList.remove('active');
     changeBackground();
 })
 
@@ -109,8 +109,8 @@ background3.addEventListener('click', () => {
     darkColorLightness = '95%';
     whiteColorLightness = '10%';
     lightColorLightness = '0%';
-    background3.add('active');
-    background1.remove('active');
-    background2.remove('active');
+    background3.classList.add('active');
+    background1.classList.remove('active');
+    background2.classList.remove('active');
     changeBackground();
 })
