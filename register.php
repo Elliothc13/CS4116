@@ -37,17 +37,18 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
         echo '<script>alert("An account with email ' . $email . ' already exists.\nYou will be redirected to login page."); window.location.href="login.html";</script>';
         $conn->close();
     } else {
-        // Insert into Users
-        $sql_1 = "INSERT INTO Users(firstName, surname, dateOfBirth, gender, genderPreference, location, description) VALUES('{$first_name}', '{$surname}', '{$_POST['date_of_birth']}', '{$_POST['gender']}', '{$_POST['gender_preference']}', '{$_POST['location']}', '{$description}');";
-        $result_1 = $conn->query($sql_1);
-        if (!$result_1) {
-            echo "\nINSERT error: " . $conn->error;
+
+        // Insert into Credentials
+        $sql_3 = "INSERT INTO Credentials(email, userId, password, isAdmin) VALUES ('{$_POST['email']}', CAST('{$user_id}' AS INT), '{$hash_password}', 0);";
+        $result_3 = $conn->query($sql_3);
+        if ((!$result_3)) {
+            echo "\nRegistration credentials error: " . $conn->error;
             $conn->close();
             exit;
         }
 
         // Check if it worked
-        $sql_2 = "SELECT userId FROM Users WHERE firstName = '{$first_name}' AND surname = '{$surname}' AND dateOfBirth = '{$_POST['date_of_birth']}' AND gender = '{$_POST['gender']}' AND genderPreference = '{$_POST['gender_preference']}' AND location = '{$_POST['location']}' AND description = '{$description}' LIMIT 1;";
+        $sql_2 = "SELECT userId FROM Credentials WHERE email = '{$email}' LIMIT 1;";
         $result_2 = $conn->query($sql_2);
         if ((!$result_2)) {
             echo "\nRegistration userId error: " . $conn->error;
@@ -61,14 +62,6 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
             exit;
         }
 
-        // Insert into Credentials
-        $sql_3 = "INSERT INTO Credentials(email, userId, password, isAdmin) VALUES ('{$_POST['email']}', CAST('{$user_id}' AS INT), '{$hash_password}', 0);";
-        $result_3 = $conn->query($sql_3);
-        if ((!$result_3)) {
-            echo "\nRegistration credentials error: " . $conn->error;
-            $conn->close();
-            exit;
-        }
         // Insert into BannedStatus
         $sql_4 = "INSERT INTO BannedStatus(userId, banStatus) VALUES ('{$user_id}', 0);";
         $result_4 = $conn->query($sql_4);
@@ -77,6 +70,16 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
             $conn->close();
             exit;
         }
+
+        // Insert into Users
+        $sql_1 = "INSERT INTO Users(firstName, surname, dateOfBirth, gender, genderPreference, location, description) VALUES('{$first_name}', '{$surname}', '{$_POST['date_of_birth']}', '{$_POST['gender']}', '{$_POST['gender_preference']}', '{$_POST['location']}', '{$description}');";
+        $result_1 = $conn->query($sql_1);
+        if (!$result_1) {
+            echo "\nINSERT error: " . $conn->error;
+            $conn->close();
+            exit;
+        }
+        
         $conn->close();
         echo "\n Registration successful";
         header("Location: login.html");
