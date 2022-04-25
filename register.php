@@ -34,7 +34,7 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
             $conn->close();
             exit;
         }
-        echo "<script>alert(\"An account with email " . $email . " already exists.\nYou will be redirected to login page.\");window.location.href = \"login.html\";</script>";
+        echo '<script>alert("An account with email ' . $email . ' already exists.\nYou will be redirected to login page."); window.location.href="login.html";</script>';
         $conn->close();
     } else {
         // Insert into Users
@@ -82,3 +82,4 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
         header("Location: login.html");
     }
 }
+?>
