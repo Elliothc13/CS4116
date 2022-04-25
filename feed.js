@@ -1,6 +1,7 @@
 const menuItems = document.querySelectorAll('.menu-item');
-const posts = document.querySelectorAll('.ingo');
-const search = document.querySelector('.searchbar');
+const posts = document.querySelector('.feeds');
+const post = document.querySelectorAll('.searchName');
+const search = document.querySelector('#searchbarinput');
 const theme = document.querySelector('#theme');
 const themeModal = document.querySelector('.customise-theme');
 const fontSizes = document.querySelectorAll('.choose-size span');
@@ -114,3 +115,18 @@ background3.addEventListener('click', () => {
     background2.classList.remove('active');
     changeBackground();
 })
+
+const searchMessage = () => {
+    const val = search.value.toLowerCase();
+    console.log(val);
+    posts.foreach(feed => {
+        let name = feed.querySelector('h3').textContent.toLowerCase();
+        if(name.indexOf(val) != -1){
+            feed.style.display = 'flex';
+        }else{
+            feed.style.display = 'none';
+        }
+    })
+}
+
+search.addEventListener('keyup', searchMessage)
