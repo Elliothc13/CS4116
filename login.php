@@ -3,7 +3,7 @@ require('basic_functions.php');
 session_start();
 if (isLoggedIn()) {
 	// redirect to feed
-	if ($_SESSION['isAdmin']) {
+	if ($_SESSION['is_admin']) {
 		header("Location: admin.php");
 	} else {
 		header("Location: feed2.php");
@@ -31,11 +31,12 @@ if (isLoggedIn()) {
 			if (! $row['isAdmin']) {
 				$sql_2 = "SELECT * FROM Users WHERE userId = {$_SESSION['user_id']} LIMIT 1;";
 				$result_2 = $conn->query($sql_2);
+				$result_3 = $result_2->fetch_assoc();
 
 				// for normal user load that users details into cookies
 				setcookie("filter", "BEST_MATCH", time() + 7200);
-				setcookie("gender", $result_2['gender'], time() + 7200);
-				setcookie("gender_preference", $result_2['genderPreference'], time() + 7200);
+				setcookie("gender", $result_3['gender'], time() + 7200);
+				setcookie("gender_preference", $result_3['genderPreference'], time() + 7200);
 				header("Location: feed2.php");
 			} else {
 				header("Location: admin.php");
