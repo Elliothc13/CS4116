@@ -191,7 +191,7 @@
                     <div class="form-group col-5" id="genderprefradio">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" name="filter_type"
-                                id="best_match" value="BEST_MATCH" <?php if(isset($_COOKIE['filter']) &&  $_COOKIE['filter'] == 'BEST_MATCH') { echo 'checked'; }?> >
+                                id="best_match" value="BEST_MATCH">
                             <label class="form-check-label" for="best_match">Use best match filter</label>
                         </div>
                         <div class="form-check">
@@ -213,19 +213,19 @@
                         </label>
                     </div> -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" <?php if(isset($_COOKIE['genderPreference']) &&  $_COOKIE['genderPreference'] == 'OTHER') { echo 'checked'; }?> >
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             Other
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" <?php if(isset($_COOKIE['genderPreference']) &&  $_COOKIE['genderPreference'] == 'MALE') { echo 'checked'; }?> >
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
                         <label class="form-check-label" for="flexCheckDefault">
                             Male
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" <?php if(isset($_COOKIE['genderPreference']) &&  $_COOKIE['genderPreference'] == 'FEMALE') { echo 'checked'; }?> >
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
                         <label class="form-check-label" for="flexCheckChecked">
                             Female
                         </label>
