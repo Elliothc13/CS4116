@@ -11,7 +11,7 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
     $first_name = $conn -> real_escape_string($_POST['first_name']);
     $surname = $conn -> real_escape_string($_POST['surname']);
     $description = $conn -> real_escape_string($_POST['description']);
-    $hash_password = md5( $hash_password);
+    $hash_password = md5( $_POST['password']);
     echo "\nStep 3";
     // Check if not registered already
     $email = $_POST['email'];
