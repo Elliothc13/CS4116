@@ -29,13 +29,13 @@ if (isLoggedIn()) {
 			$_SESSION['is_admin'] = $row['isAdmin'];
 			
 			if (! $row['isAdmin']) {
-				$sql_2 = "SELECT * FROM Users WHERE userId = {$_SESSION['userId']} LIMIT 1;";
+				$sql_2 = "SELECT * FROM Users WHERE userId = {$_SESSION['user_id']} LIMIT 1;";
 				$result_2 = $conn->query($sql_2);
 
 				// for normal user load that users details into cookies
 				setcookie("filter", "BEST_MATCH", time() + 7200);
-				setcookie("gender", $row['gender'], time() + 7200);
-				setcookie("gender_preference", $row['genderPreference'], time() + 7200);
+				setcookie("gender", $result_2['gender'], time() + 7200);
+				setcookie("gender_preference", $result_2['genderPreference'], time() + 7200);
 				header("Location: feed2.php");
 			} else {
 				header("Location: admin.php");
