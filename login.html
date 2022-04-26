@@ -12,28 +12,18 @@
     <center>
         <h3>Login Here</h3>
         <form action="login.php" method="post">
-            <table>
-                <tr>
-                    <td>Username:</td>
-                    <td>
-                        <input type="text" name="user" placeholder="username">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td>
-                        <input type="text" name="user_pass" placeholder="password">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="feed2.html" class="btn btn-primary">Login</a>
-                    </td>
-                    <td>
-                        <a href="registration.html" class="btn btn-primary">Not a Member Yet?</a>
-                    </td>
-                </tr>
-            </table>
+                <div class="mb-3">
+                    <!-- <label for="email">Email:</label> -->
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email address"
+                        aria-label="Email" title="Please enter valid email address" required>
+                </div>
+                <div class="mb-3">
+                    <!-- <label for="password">Password:</label> -->
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                    aria-label="Password" pattern=".{8-50}" required>
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary">Login</button>
+                <a href="registration.html" class="btn btn-primary">Not a Member Yet?</a>
         </form>
     </center>
 </body>
