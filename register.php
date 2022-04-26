@@ -1,17 +1,18 @@
 <?php
 require('basic_functions.php');
+echo "\nStep 1";
 // Launched when register button is clicked
 if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth', 'gender', 'gender_preference', 'location', 'description')))
 {
     // If all details present run the queries
     $conn = setupMySQL();
-
+    echo "\nStep 2";
     // Escape incomptible characters
     $first_name = $conn -> real_escape_string($_POST['first_name']);
     $surname = $conn -> real_escape_string($_POST['surname']);
     $description = $conn -> real_escape_string($_POST['description']);
     $hash_password = md5( $hash_password);
-
+    echo "\nStep 3";
     // Check if not registered already
     $email = $_POST['email'];
     $sql_0 = "SELECT * FROM Credentials WHERE email = '{$email}' LIMIT 1;";
@@ -21,6 +22,7 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
         $conn->close();
         exit;
     } elseif ($result_0->num_rows) {
+        echo "\nStep 4a";
         // If there is duplication
         // Check if not banned
         $userId = ($result_0->fetch_assoc())['userId'];
@@ -37,7 +39,7 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
         echo '<script>alert("An account with email ' . $email . ' already exists.\nYou will be redirected to login page."); window.location.href="login.html";</script>';
         $conn->close();
     } else {
-
+        echo "\nStep 4b";
         // Insert into Credentials
         $sql_3 = "INSERT INTO Credentials(email, password) VALUES ('{$_POST['email']}', '{$hash_password}');";
         $result_3 = $conn->query($sql_3);
@@ -46,7 +48,7 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
             $conn->close();
             exit;
         }
-
+        echo "\nStep 5";
         // Check if it worked
         $sql_2 = "SELECT userId FROM Credentials WHERE email = '{$email}' LIMIT 1;";
         $result_2 = $conn->query($sql_2);
@@ -55,13 +57,14 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
             $conn->close();
             exit;
         }
+        echo "\nStep 6";
         $user_id = $result_2->fetch_assoc()['userId'];
         if (!$user_id) {
             echo "\nRegistration error, userId not found";
             $conn->close();
             exit;
         }
-
+        echo "\nStep 7";
         // Insert into BannedStatus
         $sql_4 = "INSERT INTO BannedStatus(userId, banStatus) VALUES ('{$user_id}', 0);";
         $result_4 = $conn->query($sql_4);
@@ -70,7 +73,7 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
             $conn->close();
             exit;
         }
-
+        echo "\nStep 8";
         // Insert into Users
         $sql_1 = "INSERT INTO Users(firstName, surname, dateOfBirth, gender, genderPreference, location, description) VALUES('{$first_name}', '{$surname}', '{$_POST['date_of_birth']}', '{$_POST['gender']}', '{$_POST['gender_preference']}', '{$_POST['location']}', '{$description}');";
         $result_1 = $conn->query($sql_1);
@@ -79,10 +82,11 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
             $conn->close();
             exit;
         }
-        
+        echo "\nStep 9";
         $conn->close();
         echo "\n Registration successful";
         header("Location: login.html");
+        exit;
     }
 }
 ?>
