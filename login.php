@@ -19,8 +19,10 @@ if (isLoggedIn()) {
 		$conn = setupMySQL();
 		
 		$sql = "SELECT * FROM Credentials WHERE email = '".$email."' AND password = '".$password."' LIMIT 1";
+		echo "\n".$sql;
 		$result = $conn->query($sql);
 		$row = $result->fetch_assoc(); 
+		echo "\n".$row;
 		if ($row) {
 			$_SESSION['logged_in'] = true;
 			$_SESSION['user_id'] = $row['userId'];
