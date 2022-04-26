@@ -26,6 +26,7 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
         // If there is duplication
         // Check if not banned
         $userId = ($result_0->fetch_assoc())['userId'];
+        echo 'userId duplicated is ' . $userId;
         $sql_5 = "SELECT * FROM BannedStatus WHERE userId = {$userId} AND banStatus > 0 LIMIT 1;";
         $result_5 = $conn->query($sql_5);
         if (!$result_5) {
