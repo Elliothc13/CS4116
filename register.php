@@ -39,7 +39,7 @@ if (wasPosted(array('email', 'password', 'first_name', 'surname', 'date_of_birth
     } else {
 
         // Insert into Credentials
-        $sql_3 = "INSERT INTO Credentials(email, userId, password, isAdmin) VALUES ('{$_POST['email']}', CAST('{$user_id}' AS INT), '{$hash_password}', 0);";
+        $sql_3 = "INSERT INTO Credentials(email, password) VALUES ('{$_POST['email']}', '{$hash_password}');";
         $result_3 = $conn->query($sql_3);
         if ((!$result_3)) {
             echo "\nRegistration credentials error: " . $conn->error;
