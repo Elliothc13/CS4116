@@ -153,6 +153,12 @@ main .row .left .profilepicture{
     width: 100%;
 }
 
+div.signin {
+    min-width: 300px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
 /*left*/
 
 .left .sidebar{

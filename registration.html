@@ -1,94 +1,117 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Finder Registration</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-            crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="./CSS Files/css2.css">
 </head>
+
 <body>
-    <center>
-        <h3>Register Here</h3>
-        <form action="register.php" method="POST">
-            <table>
-                <tr>
-                    <td>Email:</td>
-                    <td>
-                        <input type="text" name="email" placeholder="user@example.com">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td>
-                        <input type="password" name="password" placeholder="password">
-                    </td>
-                </tr>
-                <tr>
-                    <td>First name:</td>
-                    <td>
-                        <input type="text" name="first_name" placeholder="first name">
-                    </td>
 
-                </tr>
-                <tr>
-                    <td>Surname:</td>
-                    <td>
-                        <input type="text" name="surname" placeholder="surname">
-                    </td>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 signin">
+                <form action="register.php" method="POST">
+                    <h3>Register Here</h3>
+                    <div class="mb-3">
+                        <!-- <label for="email">Email:</label> -->
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email address"
+                            aria-label="Email" title="Please enter valid email address" required>
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="password">Password:</label> -->
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                            aria-label="Password" pattern=".{8-50}"required>
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="first_name">First name:</label> -->
+                        <input type="text" class="form-control" name="first_name" id="first_name"
+                            placeholder="First name" aria-label="First name" required>
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="surname">Surname:</label> -->
+                        <input type="text" class="form-control" name="surname" id="surname" placeholder="Surname"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="location">Location:</label> -->
+                        <input type="text" class="form-control" name="location" id="location"
+                            placeholder="Location (closest town)" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date_of_birth">Date of birth:</label>
+                        <input type="date" name="date_of_birth" id="date_of_birth" required>
+                    </div>
 
-                </tr>
-                <tr>
-                    <td>Location:</td>
-                    <td>
-                        <input type="text" name="location" placeholder="location">
-                    </td>
+                    <div class="row">
+                        <div class="form-group col-6" id="genderradio">
+                            <label for="genderradio">Gender:</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender" id="gendermale" value="MALE"
+                                    required>
+                                <label class="form-check-label" for="gendermale">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender" id="genderfemale"
+                                    value="FEMALE" required>
+                                <label class="form-check-label" for="genderfemale">Female</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender" id="genderother"
+                                    value="OTHER" required>
+                                <label class="form-check-label" for="genderother">Other</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-5" id="genderprefradio">
+                            <label for="genderprefradio">Gender preference:</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender_preference"
+                                    id="genderprefmale" value="MALE" required>
+                                <label class="form-check-label" for="genderprefmale">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender_preference"
+                                    id="genderpreffemale" value="FEMALE" required>
+                                <label class="form-check-label" for="genderpreffemale">Female</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender_preference"
+                                    id="genderprefother" value="OTHER" required>
+                                <label class="form-check-label" for="genderprefother">Other</label>
+                            </div>
 
-                </tr>
-                <tr>
-                    <td>Date of birth:</td>
-                    <td>
-                        <input type="date" name="date_of_birth">
-                    </td>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="2" placeholder="Description (300 chars max)" name="description" aria-label="Description" maxlength="300" required></textarea>
+                    </div>
 
-                </tr>
-                <tr>
-                    <td>Gender:</td>
-                    <td>
-                        <input type="radio" name="gender" value="MALE">Male
-                        <input type="radio" name="gender" value="FEMALE">Female
-                        <input type="radio" name="gender" value="OTHER">Other
-                    </td>
 
-                </tr>
-                <tr>
-                    <td>Preferred gender:</td>
-                    <td>
-                        <input type="radio" name="gender_preference" value="MALE">Male
-                        <input type="radio" name="gender_preference" value="FEMALE">Female
-                        <input type="radio" name="gender_preference" value="OTHER">Other
-                    </td>
 
-                </tr>
-                <tr>
-                    <td>Description:</td>
-                    <td>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Tell us about yourself!"></textarea>
-                    </td>
+                    <!-- </tr>
+                        <tr>
+                            <td>Preferred gender:</td>
+                    
+                        <tr>
+                            <td>Description:</td>
+                            <td>
+                                <input type="text" name="description">
+                            </td> -->
 
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" name="submit" value="Register" class="btn btn-primary"/>
-                    </td>
-                    <td>
-                        <a href="login.html" class="btn btn-primary">Already a Member?</a>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </center>
+                    <button type="submit" name="submit" class="btn btn-primary">Register</button>
+                    <a href="login.html" class="btn btn-primary">Already a Member?</a>
+                </form>
+            
+            </div>
+            <div class="col-3"></div>
+        </div>
 
+
+    </div>
+    <!-- </center> -->
 </body>
+
 </html>
