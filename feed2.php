@@ -93,18 +93,17 @@
                     require('feed.php');
                     session_start();
                     if (isLoggedIn()) {
-                        // load the feed as normal
                         $conn = setupMySQL();
-                        $users = $conn->query(getBestMatchingUsersQuery());
+                        echo "SQL setup successful";
+                        $users_query = getBestMatchingUsersQuery();
+                        echo $users_query;
+                        $users = $conn->query($users_query);
                         showCards($users);
                     } else {
-                        //redirect to login
                         header("Location: login.html");
                         exit;
                     }
                     ?>
-                    
-
                     <div class="feed">
                         <div class="head">
                             <div class="user">
@@ -188,11 +187,11 @@
                 </div>
             </div>
             <div class="right col-sm-2">
-                <form action="feed2.html" method="POST">
+                <form action="feed2.php" method="POST">
                     <div class="form-group col-5" id="genderprefradio">
                         <div class="form-check">
                             <input type="radio" class="form-check-input" name="filter_type"
-                                id="best_match" value="BEST_MATCH" <?php if(isset($_COOKIE['filter']) &&  $_COOKIE['filter'] == 'BEST_MATCH') { echo 'checked'; }?>>
+                                id="best_match" value="BEST_MATCH" <?php if(isset($_COOKIE['filter']) &&  $_COOKIE['filter'] == 'BEST_MATCH') { echo 'checked'; }?> >
                             <label class="form-check-label" for="best_match">Use best match filter</label>
                         </div>
                         <div class="form-check">
@@ -214,13 +213,13 @@
                         </label>
                     </div> -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" <?php if(isset($_COOKIE['genderPreference']) &&  $_COOKIE['genderPreference'] == 'OTHER') { echo 'checked'; }?>>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" <?php if(isset($_COOKIE['genderPreference']) &&  $_COOKIE['genderPreference'] == 'OTHER') { echo 'checked'; }?> >
                         <label class="form-check-label" for="flexCheckDefault">
                             Other
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" <?php if(isset($_COOKIE['genderPreference']) &&  $_COOKIE['genderPreference'] == 'MALE') { echo 'checked'; }?>>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" <?php if(isset($_COOKIE['genderPreference']) &&  $_COOKIE['genderPreference'] == 'MALE') { echo 'checked'; }?> >
                         <label class="form-check-label" for="flexCheckDefault">
                             Male
                         </label>
@@ -250,7 +249,7 @@
                     </div>
                     
                     </div>
-                    <button href="feed2.html" type="submit" name="submit" class="btn btn-primary">Apply Filter</a>
+                    <button href="feed2.php" type="submit" name="submit" class="btn btn-primary">Apply Filter</a>
                 </form>
                 
             </div>

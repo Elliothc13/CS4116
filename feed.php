@@ -49,18 +49,18 @@ function showCards($rows)
 function getCustomFiltersQuery() {
 	$filtered_query = 'SELECT * FROM USERS WHERE ';
 	$addons = 0;
-	if (isset($_POST['showMale']) {
+	if (isset($_POST['showMale'])) {
 		$filtered_query = $filtered_query . "gender = 'MALE'";
 		$addons = $addons + 1;
 	}
-	if (isset($_POST['showFemale']) {
+	if (isset($_POST['showFemale'])) {
 		if ($addons > 0) {
 			$filtered_query = $filtered_query . ' AND ';
 		}
 		$filtered_query = $filtered_query . "gender = 'FEMALE'";
 		$addons = $addons + 1;
 	}
-	if (isset($_POST['showOther']) {
+	if (isset($_POST['showOther'])) {
 		if ($addons > 0) {
 			$filtered_query = $filtered_query . ' AND ';
 		}

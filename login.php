@@ -6,7 +6,7 @@ if (isLoggedIn()) {
 	if ($_SESSION['isAdmin']) {
 		header("Location: admin.php");
 	} else {
-		header("Location: feed2.html");
+		header("Location: feed2.php");
 	}
 	exit(); 
 	// redirects to the feed or admin page
@@ -36,7 +36,7 @@ if (isLoggedIn()) {
 				setcookie("filter", "BEST_MATCH", time() + 7200);
 				setcookie("gender", $row['gender'], time() + 7200);
 				setcookie("gender_preference", $row['genderPreference'], time() + 7200);
-				header("Location: feed2.html");
+				header("Location: feed2.php");
 			} else {
 				header("Location: admin.php");
 			}
