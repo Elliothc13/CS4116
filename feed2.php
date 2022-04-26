@@ -85,8 +85,47 @@
                         <h3>Settings</h3>
                     </a>
                 </div>
-
             </div>
+
+            <div class="customise-theme">
+                <div class="card">
+                    <h2>customise your view</h2>
+                    <p>Manage your font size and background.</p>
+                    <div class="font-size">
+                        <h4>font size</h4>
+                        <div>
+                            <h6>Aa</h6>
+                            <div class="choose-size">
+                                <span class="font-size-1"></span>
+                                <span class="font-size-2"></span>
+                                <span class="font-size-3 active"></span>
+                                <span class="font-size-4"></span>
+                                <span class="font-size-5"></span>
+                            </div>
+                            <h3>Aa</h3>
+                        </div>
+                    </div>
+
+                    <div class="background">
+                        <h4>Background</h4>
+                        <div class="choose-background">
+                            <div class="background-1 active">
+                                <span></span>
+                                <h5 for="background-1">Light</h5>
+                            </div>
+                            <div class="background-2">
+                                <span></span>
+                                <h5 for="background-2">Dim</h5>
+                            </div>
+                            <div class="background-3">
+                                <span></span>
+                                <h5 for="background-3">Black</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="middle col-sm-6">
                 <div class="feeds">
                     <?php
@@ -256,44 +295,7 @@
         </div>
     </main>
 
-    <div class="customise-theme">
-        <div class="card">
-            <h2>customise your view</h2>
-            <p>Manage your font size and background.</p>
-            <div class="font-size">
-                <h4>font size</h4>
-                <div>
-                    <h6>Aa</h6>
-                    <div class="choose-size">
-                        <span class="font-size-1"></span>
-                        <span class="font-size-2"></span>
-                        <span class="font-size-3 active"></span>
-                        <span class="font-size-4"></span>
-                        <span class="font-size-5"></span>
-                    </div>
-                    <h3>Aa</h3>
-                </div>
-            </div>
-
-            <div class="background">
-                <h4>Background</h4>
-                <div class="choose-background">
-                    <div class="background-1 active">
-                        <span></span>
-                        <h5 for="background-1">Light</h5>
-                    </div>
-                    <div class="background-2">
-                        <span></span>
-                        <h5 for="background-2">Dim</h5>
-                    </div>
-                    <div class="background-3">
-                        <span></span>
-                        <h5 for="background-3">Black</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <script src="./feed.js"></script>
 
