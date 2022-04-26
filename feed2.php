@@ -128,21 +128,7 @@
 
             <div class="middle col-sm-6">
                 <div class="feeds">
-                    <?php
-                    require('feed.php');
-                    session_start();
-                    if (isLoggedIn()) {
-                        $conn = setupMySQL();
-                        echo "SQL setup successful";
-                        $users_query = getBestMatchingUsersQuery();
-                        echo $users_query;
-                        $users = $conn->query($users_query);
-                        showCards($users);
-                    } else {
-                        header("Location: login.html");
-                        exit;
-                    }
-                    ?>
+                    
                     <div class="feed">
                         <div class="head">
                             <div class="user">
@@ -288,7 +274,7 @@
                     </div>
                     
                     </div>
-                    <button href="feed2.php" type="submit" name="submit" class="btn btn-primary">Apply Filter</a>
+                    <button href="feed.php" type="submit" name="submit" class="btn btn-primary">Apply Filter</a>
                 </form>
                 
             </div>

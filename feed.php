@@ -1,6 +1,20 @@
 <?php
 require('basic_functions.php');
-
+echo "\n Feed php step 0";
+require('feed.php');
+session_start();
+if (isLoggedIn()) {
+	$conn = setupMySQL();
+	echo "SQL setup successful";
+	$users_query = getBestMatchingUsersQuery();
+	echo $users_query;
+	$users = $conn->query($users_query);
+	showCards($users);
+} else {
+	header("Location: login.html");
+	exit;
+}
+                    
 function getBestMatchingUsersQuery() {
 	return "SELECT * FROM USERS WHERE gender = '".$_COOKIE['gender_preference']."' AND genderPreference = '".$_COOKIE['gender']."';";
 }
