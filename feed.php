@@ -15,9 +15,11 @@ function getUserByName($search_term) {
 // }
 function showCards($rows)
 {
+	echo '\n ShowCards 0';
 	while ($row = $rows->fetch_assoc())
 	{
-		
+		echo '\n ShowCards 1';
+
 		echo '<div class="feed">
 		<div class="head">
 			<div class="user">
@@ -44,6 +46,7 @@ function showCards($rows)
 			<p>'.$row['description'].'</p>
 		</div>
 	</div>';
+	echo '\n ShowCards 2';
 	}
 }
 function getCustomFiltersQuery() {
